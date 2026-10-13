@@ -70,7 +70,6 @@
       const data = Object.fromEntries(new FormData(form).entries());
       // Honeypot: bots fill hidden fields, humans don't.
       if (data.website) return;
-      delete data.website;
 
       const button = form.querySelector('button[type="submit"]');
       button.disabled = true;

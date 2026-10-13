@@ -36,14 +36,13 @@
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ &amp; Support</a>
         <div class="nav-ctas-mobile">
-          <a class="btn btn-ghost" href="#">Dealer Portal Login</a>
+          <a class="btn btn-ghost" href="https://admin.ecunex.com">Dealer Portal Login</a>
           <a class="btn btn-primary" href="#contact">Become a Dealer</a>
         </div>
       </nav>
 
       <div class="header-ctas">
-        <!-- TODO: set the Dealer Portal URL -->
-        <a class="btn btn-ghost" href="#">Dealer Portal Login</a>
+        <a class="btn btn-ghost" href="https://admin.ecunex.com">Dealer Portal Login</a>
         <a class="btn btn-primary" href="#contact">Become a Dealer / Request Demo</a>
       </div>
 
@@ -524,8 +523,8 @@
           <p class="muted">Prefer email? <a href="mailto:info@ecunex.com">info@ecunex.com</a></p>
         </div>
 
-        <!-- Posts JSON to the .NET API, which relays it via Zoho SMTP to info@ecunex.com -->
-        <form id="dealer-form" class="card form reveal" action="/api/dealer-applications" method="post" novalidate>
+        <!-- Posts JSON to the .NET API, which relays it via configured SMTP to info@ecunex.com -->
+        <form id="dealer-form" class="card form reveal" action="https://api.ecunex.com/api/dealer-applications" method="post" novalidate>
           <div class="field-row">
             <label class="field"><span>Name &amp; Surname *</span>
               <input name="fullName" type="text" required maxlength="100" autocomplete="name"></label>
@@ -536,7 +535,7 @@
             <label class="field"><span>Business Email *</span>
               <input name="email" type="email" required maxlength="150" placeholder="info@yourcompany.com" autocomplete="email"></label>
             <label class="field"><span>WhatsApp / Phone *</span>
-              <input name="phone" type="tel" required maxlength="30" placeholder="+1 555 123 4567" pattern="^\+?[0-9\s\-()]{7,30}$" autocomplete="tel"></label>
+              <input name="phone" type="tel" required maxlength="30" placeholder="+1 555 123 4567" pattern="(?=(?:[^0-9]*[0-9]){7})\+?[0-9 \(\)\-]{7,30}" autocomplete="tel"></label>
           </div>
           <div class="field-row">
             <label class="field"><span>Country / Region *</span>
@@ -551,7 +550,7 @@
           </div>
           <label class="field"><span>Message / Notes</span>
             <textarea name="message" rows="4" maxlength="2000" placeholder="Target vehicles, ECUs, current tools..."></textarea></label>
-          <label class="hp" aria-hidden="true">Website <input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <label class="hp" aria-hidden="true">Website <input name="website" type="text" maxlength="100" tabindex="-1" autocomplete="off"></label>
           <button class="btn btn-primary btn-lg btn-block" type="submit">Apply for Dealer Account</button>
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
