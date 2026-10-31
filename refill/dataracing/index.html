@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Recarga de créditos | DataRacing · ECUNEX</title>
+  <meta name="description" content="Comprá créditos para tu dongle ECUNEX y pagá con Mercado Pago.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#1e1e1e">
+  <link rel="icon" type="image/png" href="/images/LOGO/real%20color.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/refill/refill.css">
+  <script src="/refill/refill.js" defer></script>
+</head>
+<body class="refill-page" data-tenant="dataracing" data-api="https://api.ecunex.com" data-api-dev="https://localhost:7139">
+  <header class="refill-header">
+    <div class="refill-container refill-header-inner">
+      <a class="brand" href="/" aria-label="ECUNEX">
+        <img src="/images/LOGO/real%20color.png" alt="ECUNEX" width="150" height="50">
+      </a>
+      <span class="refill-tenant">Recarga de créditos · <strong>DataRacing</strong></span>
+    </div>
+  </header>
+
+  <main class="refill-container refill-main" id="main">
+    <h1 class="refill-title">Comprá créditos para tu dongle</h1>
+    <p class="muted refill-subtitle">Elegí un paquete, pagá con Mercado Pago y los créditos se suman automáticamente a tu dongle.</p>
+
+    <noscript><p class="refill-alert error">Necesitás habilitar JavaScript para comprar créditos.</p></noscript>
+
+    <!-- Step 1: dongle -->
+    <section class="refill-card" id="step-dongle" aria-labelledby="dongle-title">
+      <h2 class="refill-card-title" id="dongle-title"><span class="refill-step">1</span> Tu Dongle ID</h2>
+      <form id="dongle-form" novalidate>
+        <label class="field" for="dongle-id">
+          Dongle ID (12 caracteres)
+          <input id="dongle-id" name="dongleId" class="refill-mono" type="text" inputmode="text" autocomplete="off"
+                 autocapitalize="characters" spellcheck="false" maxlength="17" placeholder="Ej: A4CF12DFC334" required>
+        </label>
+        <p class="refill-hint">Lo encontrás en la app ECUNEX, en el menú <strong>Comprar créditos</strong>.</p>
+        <p class="refill-alert error" id="dongle-error" role="alert" hidden></p>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="dongle-submit">Continuar</button>
+      </form>
+    </section>
+
+    <!-- Step 2: packages -->
+    <section class="refill-card" id="step-packages" aria-labelledby="packages-title" hidden>
+      <div class="refill-dongle-summary">
+        <div>
+          <span class="refill-label">Dongle</span>
+          <span class="refill-mono refill-dongle-value" id="summary-dongle"></span>
+        </div>
+        <button class="btn btn-ghost" type="button" id="change-dongle">Cambiar</button>
+      </div>
+
+      <p class="refill-discount" id="discount-banner" hidden></p>
+
+      <h2 class="refill-card-title" id="packages-title"><span class="refill-step">2</span> Elegí cuántos créditos</h2>
+      <div class="refill-packages" id="packages" role="radiogroup" aria-labelledby="packages-title"></div>
+      <p class="refill-alert" id="packages-empty" hidden>No hay paquetes disponibles en este momento. Probá más tarde.</p>
+
+      <p class="refill-alert error" id="checkout-error" role="alert" hidden></p>
+      <button class="btn btn-primary btn-lg btn-block refill-pay" type="button" id="pay-button" disabled>
+        Pagar con Mercado Pago
+      </button>
+      <p class="refill-hint refill-center">Vas a ser redirigido a Mercado Pago para completar el pago de forma segura.</p>
+    </section>
+
+    <!-- Step 3: result after Mercado Pago -->
+    <section class="refill-card refill-result" id="step-result" aria-live="polite" hidden>
+      <div class="refill-result-icon" id="result-icon" aria-hidden="true"></div>
+      <h2 class="refill-result-title" id="result-title"></h2>
+      <p class="muted" id="result-text"></p>
+      <dl class="refill-result-details" id="result-details" hidden>
+        <div><dt>Dongle</dt><dd class="refill-mono" id="result-dongle"></dd></div>
+        <div><dt>Créditos</dt><dd id="result-credits"></dd></div>
+        <div><dt>Total</dt><dd id="result-amount"></dd></div>
+      </dl>
+      <button class="btn btn-primary btn-lg btn-block" type="button" id="result-action" hidden></button>
+    </section>
+  </main>
+
+  <footer class="refill-footer">
+    <div class="refill-container">
+      <span>Pagos procesados por Mercado Pago · ECUNEX</span>
+    </div>
+  </footer>
+</body>
+</html>

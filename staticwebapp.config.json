@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "route": "/refill/*",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "no-cache"
+      }
+    }
+  ]
+}
