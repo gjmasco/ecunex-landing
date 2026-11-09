@@ -234,6 +234,10 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .faq summary::after { content: "+"; position: absolute; right: .5rem; top: 50%; transform: translateY(-50%); font: 400 1.4rem var(--font); color: var(--muted); }
 .faq details[open] summary::after { content: "-"; color: var(--accent); }
 .faq details p { padding: 0 3rem 1.75rem 0; margin: 0; color: var(--muted); font-size: .9rem; max-width: 80ch; }
+.privacy-content h3 { margin: 2rem 0 .65rem; font-size: 1.1rem; }
+.privacy-content p, .privacy-content li { color: var(--muted); font-size: .92rem; }
+.privacy-content ul { padding-left: 1.25rem; }
+.privacy-content li { margin: .4rem 0; }
 
 /* Inquiry form */
 .contact { background: var(--bg); }
